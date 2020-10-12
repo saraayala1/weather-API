@@ -1,0 +1,49 @@
+.container {
+  border-color: #0d0b62;
+  border-style: solid;
+  border-radius: 20px;
+  display: block;
+  margin: auto;
+  max-width: 600px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+#search-city,
+#search-button,
+#current-location-button {
+  border-color: #0d0b62;
+  border-radius: 10px;
+  box-shadow: 2px;
+  padding: 5px 10px;
+  transition: 200ms;
+}
+#search-button:hover,
+#current-location-button:hover {
+  background-color: #0d0b62;
+  color: white;
+}
+#temperature {
+  font-size: 40px;
+}
+body {
+  padding-top: 5%;
+}
+h1 {
+  color: #0d0b62;
+  padding-top: 2%;
+  text-align: center;
+}
+header {
+  margin: auto;
+  padding: 2%;
+  text-align: center;
+}
+small {
+  display: block;
+  margin: auto;
+  padding-top: 3%;
+  text-align: center;
+}
+ul li {
+  list-style-type: none;
+}
