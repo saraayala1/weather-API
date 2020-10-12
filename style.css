@@ -23,7 +23,11 @@
   color: white;
 }
 #temperature {
-  font-size: 40px;
+  font-size: 45px;
+}
+#units {
+  position: relative;
+  top: -20px;
 }
 body {
   padding-top: 5%;
