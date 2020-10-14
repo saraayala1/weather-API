@@ -45,6 +45,7 @@ header {
   margin: auto;
   padding: 2%;
   text-align: center;
+  text-transform: capitalize;
 }
 small {
   display: block;
