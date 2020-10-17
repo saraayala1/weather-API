@@ -9,7 +9,7 @@ let day= days[date.getDay()];
 }
 
 function findWeather(response) { 
-
+console.log(response.data);
 date.innerHTML= getDate(response.data.dt*1000);
 let description=document.querySelector("#description");
 description.innerHTML=response.data.weather[0].description;
@@ -27,6 +27,8 @@ let temperature=document.querySelector("#temperature");
 temperature.innerHTML= Math.round(response.data.main.temp);
 let wind = document.querySelector("#wind");
 wind.innerHTML=Math.round(response.data.wind.speed);
+let icon = document.querySelector("#icon");
+icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 }
 let apiKey= "d65010f0ee255fc171c7d8183e8bf68a"
 let city="London"
