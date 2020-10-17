@@ -9,7 +9,6 @@ let day= days[date.getDay()];
 }
 
 function findWeather(response) { 
-console.log(response.data);
 date.innerHTML= getDate(response.data.dt*1000);
 let description=document.querySelector("#description");
 description.innerHTML=response.data.weather[0].description;
@@ -30,11 +29,24 @@ wind.innerHTML=Math.round(response.data.wind.speed);
 let icon = document.querySelector("#icon");
 icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 }
-let apiKey= "d65010f0ee255fc171c7d8183e8bf68a"
-let city="London"
-let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
-
+function search(city){
+ let apiKey= "d65010f0ee255fc171c7d8183e8bf68a"
+let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`   
 axios.get(apiUrl).then(findWeather)
+}
+
+function handleSubmit(event){
+  event.preventDefault();
+  let cityElement = document.querySelector("#search-city");
+search(cityElement.value);
+}
+
+search("Charleston");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+
 
 
 

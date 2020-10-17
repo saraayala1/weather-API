@@ -29,6 +29,14 @@
   background-color: #0d0b62;
   color: white;
 }
+#description {
+  font-size: 20px;
+}
+#description-temp {
+  margin: auto;
+  text-align: center;
+}
+
 #temperature {
   font-size: 50px;
 }
@@ -38,9 +46,6 @@
 }
 body {
   padding-top: 5%;
-}
-footer {
-  display: inline;
 }
 h1 {
   color: #0d0b62;
@@ -52,6 +57,7 @@ header {
   padding: 2%;
   text-align: center;
 }
+
 small {
   display: block;
   margin: auto;
