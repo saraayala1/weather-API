@@ -28,6 +28,8 @@ let wind = document.querySelector("#wind");
 wind.innerHTML=Math.round(response.data.wind.speed);
 let icon = document.querySelector("#icon");
 icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+
+fahrTemp=response.data.main.temp;
 }
 function search(city){
  let apiKey= "d65010f0ee255fc171c7d8183e8bf68a"
@@ -55,18 +57,33 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
+function showFahr(event){
+event.preventDefault();
+let temperature=document.querySelector("#temperature");
+temperature.innerHTML=Math.round(fahrTemp);
 
 
+}
+function showCelsius(event){
+event.preventDefault();
+let temperature=document.querySelector("#temperature");
+let celsiusTemp=[fahrTemp-32]*5/ 9;
+temperature.innerHTML=Math.round(celsiusTemp)
+}
 
+let fahrTemp=null;
 
+let fahrLink =document.querySelector("#fahrenheit-link");
+fahrLink.addEventListener("click", showFahr)
 
-
-search("Charleston");
+let celsiusTemp = null;
+let celsiusLink =document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsius);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-
+search("Charleston");
 
 
 
