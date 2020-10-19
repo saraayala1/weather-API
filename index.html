@@ -19,41 +19,48 @@
         <button id="current-location-button">Current Location</button>
             </form>
         </header>
+        <h1 id="city">Charleston, SC</h1>
         <div class="row">
-            <div class="col-6 float-left">
-            <h1 id="city">Charleston, SC</h1>
-            </div>
-            <div class=" col-6 float-right" id=description-temp>
+            <div class="col-4" id="icon-description">
+                <img src="#" alt="#" id="icon">
                 <div id="description">#</div>
-                 <img src="#" alt="#" id="icon">
+            </div>
+            <div class="col-4" id="temp-box">
                 <span id="temperature">75</span>
                 <span id="units"> 
                     <a href="#" id="fahrenheit-link">°F</a>
                     |<a href="#" id="celsius-link">°C</a>
                 </span>
+                <div id="min-max"><span id="min">12</span>°|<span id="max">12</span>°</div>
+            
+            </div>
+            <div class="col-4" id="extra-info">
+                <span id="date"></span> <br>
+                Feels Like: <span id="feels-like">12</span>° <br>
+                Humidity: <span id="humidity">12</span>% <br>
+                Wind: <span id="wind"> 12</span> kph
             </div>
         </div>
-    <div class="row">
+    <div>
+
+    </div>
+    <div class="row" id="forecast">
         <div class="col-4">
-            <ul>
-                <li >Last updated: <span id="date"></span></li>
-            </ul> 
+            <h4>Day</h4>
+            <strong>min/max</strong>
+            icon
         </div>
         <div class="col-4">
-            <ul>
-                <li>Minimum: <span id="min">12</span>°</li>
-                <li>Maximum: <span id="max">12</span>°</li>
-                 <li>Feels Like: <span id="feels-like">12</span>°</li>
-            </ul> 
+            <h4>Day</h4>
+            <strong>min/max</strong>
+            icon
         </div>
         <div class="col-4">
-            <ul> 
-                 <li>Humidity: <span id="humidity">12</span>%</li>
-                 <li>Wind: <span id="wind"> 12</span> kph</li>
-            </ul>  
+            <h4>Day</h4>
+            <strong>min/max</strong>
+            icon
         </div>
     </div>
-    
 </div>
     <small> <a href="https://github.com/saraayala1/weather-API" target="_blank">Open Source Code </a> by Sara Ayala</small>
 <script src="index.js"></script>

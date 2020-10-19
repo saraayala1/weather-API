@@ -1,10 +1,3 @@
-.active {
-  color: black;
-}
-a.active:hover {
-  cursor: pointer;
-  text-emphasis: none;
-}
 .container {
   border-color: #0d0b62;
   border-style: solid;
@@ -12,16 +5,22 @@ a.active:hover {
   display: block;
   margin: auto;
   max-width: 600px;
-  padding-top: 2%;
   padding-bottom: 2%;
+  text-align: center;
 }
-.col-4 {
-  font-size: 20px;
-}
+
 #description {
+  font-size: 20px;
   text-transform: capitalize;
 }
 
+#extra-info {
+  font-size: 20px;
+  text-align: center;
+}
+#forecast {
+  margin-top: 10px;
+}
 #search-city,
 #search-button,
 #current-location-button {
@@ -37,14 +36,9 @@ a.active:hover {
   background-color: #0d0b62;
   color: white;
 }
-#description {
+#min-max {
   font-size: 20px;
 }
-#description-temp {
-  margin: auto;
-  text-align: center;
-}
-
 #temperature {
   font-size: 50px;
 }
