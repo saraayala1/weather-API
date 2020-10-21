@@ -40,7 +40,6 @@ fahrTemp=response.data.main.temp;
 }
 
 function showForecast(response){
-  console.log
   let timeZero=document.querySelector("#time0")
   timeZero.innerHTML=formatHours(response.data.list[0].dt*1000)
   let tempZero = document.querySelector("#temp0");
@@ -73,7 +72,7 @@ let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${ap
 axios.get(apiUrl).then(findWeather)
 
 let apiFKey ="8eac7d0daaee5ecadb550cc3c656f342"
-let forecastUrl =`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiFKey}&units=imperial`
+let forecastUrl =`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiFKey}&units=imperial`
 axios.get(forecastUrl).then(showForecast)
 }
 
