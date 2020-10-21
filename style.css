@@ -49,10 +49,12 @@
 body {
   padding-top: 5%;
 }
-h1 {
+h1,
+h3 {
   color: #0d0b62;
   text-align: center;
 }
+
 header {
   margin: auto;
   padding: 2%;

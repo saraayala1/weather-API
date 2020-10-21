@@ -7,6 +7,13 @@ let days=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday" , "Friday", "Sa
 let day= days[date.getDay()];
  return `${day} ${hour}:${minute}`
 }
+function formatHours(timestamp){
+  let date= new Date(timestamp);
+  let hour= date.getHours();
+  let minute= date.getMinutes();
+  if (minute <10) {minute= `0${minute}`;}
+  return `${hour}:${minute}`
+}
 
 function findWeather(response) { 
 date.innerHTML= getDate(response.data.dt*1000);
@@ -31,10 +38,43 @@ icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weath
 
 fahrTemp=response.data.main.temp;
 }
+
+function showForecast(response){
+  console.log
+  let timeZero=document.querySelector("#time0")
+  timeZero.innerHTML=formatHours(response.data.list[0].dt*1000)
+  let tempZero = document.querySelector("#temp0");
+  tempZero.innerHTML=Math.round(response.data.list[0].main.temp);
+  let popZero = document.querySelector("#pop0");
+  popZero.innerHTML=Math.round(100*(response.data.list[0].pop));
+  let timeOne=document.querySelector("#time1")
+  timeOne.innerHTML=formatHours(response.data.list[1].dt*1000)
+  let tempOne = document.querySelector("#temp1");
+  tempOne.innerHTML=Math.round(response.data.list[1].main.temp);
+  let popOne = document.querySelector("#pop1");
+  popOne.innerHTML=Math.round(100*(response.data.list[1].pop));
+  let timeTwo=document.querySelector("#time2")
+  timeTwo.innerHTML=formatHours(response.data.list[2].dt*1000)
+  let tempTwo = document.querySelector("#temp2");
+  tempTwo.innerHTML=Math.round(response.data.list[2].main.temp);
+  let popTwo = document.querySelector("#pop2");
+  popTwo.innerHTML=Math.round(100*(response.data.list[2].pop));
+  let timeThree=document.querySelector("#time3")
+  timeThree.innerHTML=formatHours(response.data.list[3].dt*1000)
+  let tempThree = document.querySelector("#temp3");
+  tempThree.innerHTML=Math.round(response.data.list[3].main.temp);
+  let popThree = document.querySelector("#pop3");
+  popThree.innerHTML=Math.round(100*(response.data.list[3].pop));
+}
+
 function search(city){
- let apiKey= "d65010f0ee255fc171c7d8183e8bf68a"
+let apiKey= "d65010f0ee255fc171c7d8183e8bf68a"
 let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`   
 axios.get(apiUrl).then(findWeather)
+
+let apiFKey ="8eac7d0daaee5ecadb550cc3c656f342"
+let forecastUrl =`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiFKey}&units=imperial`
+axios.get(forecastUrl).then(showForecast)
 }
 
 function handleSubmit(event){
@@ -82,6 +122,10 @@ celsiusLink.addEventListener("click", showCelsius);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+
+
+
 
 search("Charleston");
 
