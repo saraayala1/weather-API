@@ -37,6 +37,9 @@ let icon = document.querySelector("#icon");
 icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 
 fahrTemp=response.data.main.temp;
+fahrMin=response.data.main.temp_min;
+fahrMax=response.data.main.temp_max;
+fahrFeelsLike=response.data.main.feels_like;
 }
 
 function showForecast(response){
@@ -100,6 +103,12 @@ function showFahr(event){
 event.preventDefault();
 let temperature=document.querySelector("#temperature");
 temperature.innerHTML=Math.round(fahrTemp);
+let feelsLike=document.querySelector("#feels-like");
+feelsLike.innerHTML=Math.round(fahrFeelsLike);
+let min=document.querySelector("#min");
+min.innerHTML=Math.round(fahrMin);
+let max=document.querySelector("#max");
+max.innerHTML=Math.round(fahrMax);
 
 
 }
@@ -107,14 +116,28 @@ function showCelsius(event){
 event.preventDefault();
 let temperature=document.querySelector("#temperature");
 let celsiusTemp=[fahrTemp-32]*5/ 9;
-temperature.innerHTML=Math.round(celsiusTemp)
-}
+temperature.innerHTML=Math.round(celsiusTemp);
+let feelsLike=document.querySelector("#feels-like");
+let celsiusFeelsLike=[fahrFeelsLike-32]*5/9;
+feelsLike.innerHTML=Math.round(celsiusFeelsLike);
+let min=document.querySelector("#min");
+let celsiusMin=[fahrMin-32]*5/9;
+min.innerHTML=Math.round(celsiusMin);
+let max=document.querySelector("#max");
+let celsiusMax=[fahrMax-32]*5/9;
+max.innerHTML=Math.round(celsiusMax);
 
+} 
+let fahrFeelsLike=null;
+let fahrMax=null;
+let fahrMin=null;
 let fahrTemp=null;
-
 let fahrLink =document.querySelector("#fahrenheit-link");
 fahrLink.addEventListener("click", showFahr)
 
+let celsiusFeelsLike=null;
+let celsiusMax=null;
+let celsiusMin=null;
 let celsiusTemp = null;
 let celsiusLink =document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsius);
