@@ -89,6 +89,10 @@ function searchLocation(position) {
   let apiKey = "8eac7d0daaee5ecadb550cc3c656f342";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(findWeather);
+
+ let apiFKey ="8eac7d0daaee5ecadb550cc3c656f342"
+let forecastUrl =`https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&APPID=${apiFKey}&units=imperial`;
+axios.get(forecastUrl).then(showForecast); 
 }
 
 function getCurrentLocation(event) {
@@ -145,14 +149,4 @@ celsiusLink.addEventListener("click", showCelsius);
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-
-
-
-
 search("Charleston");
-
-
-
-
-
-
